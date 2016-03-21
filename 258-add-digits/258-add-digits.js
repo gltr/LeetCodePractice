@@ -22,18 +22,19 @@
 var addDigits = function(num) {
   //create variable that converts num to string
   var numStr = '' + num;
+  //create variable that can be used to sum the numbers
+  var sum = 0;
   //base case: if the length of the string is 1
   if (numStr.length === 1) {
     //convert the string back into a number and return it
-    return +numStr;
+    return parseInt(numStr);
   } else {
   //recursive case: loop through the string
-  var sum = 0;
   for (var i = 0; i < numStr.length; i++) {
     //add each item of the string together and convert it back into a number
-    sum += (parseInt(numStr[i]));
-    //run addDigits on the new number
+    sum += parseInt(numStr[i]);
     }
-  addDigits(sum);
+  //run addDigits on the new number
+  return addDigits(sum);
   }
 };
